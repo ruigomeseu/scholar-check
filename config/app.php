@@ -145,6 +145,11 @@ return [
 		'ScholarCheck\Providers\EventServiceProvider',
 		'ScholarCheck\Providers\RouteServiceProvider',
 
+        /*
+         * Custom
+         */
+        'Laravel\Cashier\CashierServiceProvider'
+
 	],
 
 	/*
