@@ -1,0 +1,8 @@
+{
+  "name": "scholar-check",
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.4",
+    "font-awesome": "~4.3.0",
+    "animate.css": "~3.2.5"
+  }
+}

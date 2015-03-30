@@ -1,0 +1,38 @@
+// Google Fonts
+@import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800");
+
+$icon-font-path: "../../fonts/bootstrap/";
+$fa-font-path: "../../fonts/";
+
+@import "bootstrap";
+@import "font-awesome";
+
+// Variables, Mixins
+@import "partials/variables.scss";
+@import "partials/mixins.scss";
+
+@import "partials/base.scss";
+@import "partials/page-loader.scss";
+@import "partials/header.scss";
+@import "partials/left-sidebar.scss";
+@import "partials/main-content.scss";
+@import "partials/right-sidebar.scss";
+@import "partials/profile-status.scss";
+@import "partials/buttons.scss";
+@import "partials/progress.scss";
+@import "partials/panels.scss";
+@import "partials/widgets.scss";
+@import "partials/tabs.scss";
+@import "partials/badge.scss";
+@import "partials/misc.scss";
+@import "partials/sliders.scss";
+@import "partials/charts.scss";
+@import "partials/nested-sortable.scss";
+@import "partials/icons.scss";
+@import "partials/forms.scss";
+@import "partials/pages.scss";
+@import "partials/calendar.scss";
+@import "partials/preloader.scss";
+@import "partials/modals.scss";
+@import "partials/theme-colors.scss";
