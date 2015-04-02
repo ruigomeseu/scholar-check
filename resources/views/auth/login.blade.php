@@ -8,6 +8,12 @@
             </h3>
         </div>
         <div class="panel-body ng-binding">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -19,7 +25,7 @@
                 </div>
             @endif
 
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="form-group">
@@ -51,8 +57,13 @@
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </div>
-                <div style="text-align: right;" class="col-md-12">
-                    <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-link" href="{{ url('/signup') }}">No account? Signup</a>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+                    </div>
                 </div>
             </form>
         </div>

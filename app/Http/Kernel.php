@@ -27,6 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'ScholarCheck\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'ScholarCheck\Http\Middleware\RedirectIfAuthenticated',
+        'api.key' => 'ScholarCheck\Http\Middleware\ValidApiKeyMiddleware'
 	];
 
 }

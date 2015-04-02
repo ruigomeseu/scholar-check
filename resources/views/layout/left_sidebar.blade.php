@@ -7,6 +7,11 @@
                     <i class="fa fa-fw fa-tachometer"></i> Dashboard
                 </a>
             </li>
+            <li>
+                <a href="{{ route('keys.index') }}" title="API Keys">
+                    <i class="fa fa-fw fa-key"></i> API Keys
+                </a>
+            </li>
             <li class="nav-dropdown">
                 <a href="#" title="Documentation">
                     <i class="fa fa-fw fa-book"></i> Documentation

@@ -10,9 +10,9 @@
             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="meta">
                             <span class="avatar">
-                                <img src="/images/profile.jpg" class="img-circle" alt="">
+                                <img src="{{ Auth::user()->getGravatar(32) }}" class="img-circle" alt="">
                             </span>
-                        <span class="text">Mike Adams</span>
+                        <span class="text">{{ Auth::user()->name }}</span>
                         <span class="caret"></span>
                         </span>
             </a>
@@ -45,7 +45,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="javascript:void(0);">
+                    <a href="{{ route('logout') }}">
                                 <span class="icon"><i class="fa fa-sign-out"></i>
                                 </span>Logout</a>
                 </li>

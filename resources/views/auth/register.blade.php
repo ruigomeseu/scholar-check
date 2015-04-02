@@ -19,7 +19,11 @@
                 </div>
             @endif
 
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+            <form id="signup-form" class="form-horizontal" role="form" method="POST" action="{{ url('/signup') }}">
+
+                <div id="payment-errors" class="alert alert-danger" style="display:none;">
+                </div>
+
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="form-group">
@@ -51,25 +55,25 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
+                    <label class="col-sm-3 control-label" for="card-name">Name on Card</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+                        <input type="text" class="form-control" name="card-name" id="card-name" placeholder="Card Holder's Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="card-number">Card Number</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+                        <input type="text" class="form-control" data-stripe="number" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
+                    <label class="col-sm-3 control-label" for="card-expiry-month">Expiration Date</label>
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-xs-3">
-                                <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                                <select class="form-control col-sm-2" name="card-expiry-month" id="card-expiry-month">
                                     <option>Month</option>
-                                    <option value="01">Jan (01)</option>
+                                    <option value="01" selected>Jan (01)</option>
                                     <option value="02">Feb (02)</option>
                                     <option value="03">Mar (03)</option>
                                     <option value="04">Apr (04)</option>
@@ -84,9 +88,9 @@
                                 </select>
                             </div>
                             <div class="col-xs-3">
-                                <select class="form-control" name="expiry-year">
-                                    @foreach(range(date('y'), date('y')+10) as $year)
-                                        <option value="{{ $year }}">20{{ $year }}</option>
+                                <select class="form-control" name="card-expiry-year" id="card-expiry-year">
+                                    @foreach(range(date('Y'), date('Y')+10) as $year)
+                                        <option value="{{ $year }}">{{ $year }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -94,9 +98,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
+                    <label class="col-sm-3 control-label" for="card-cvv">Card CVV</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
+                        <input type="text" class="form-control" name="card-cvv" id="card-cvv" placeholder="Security Code">
                     </div>
                 </div>
 
@@ -107,27 +111,22 @@
                     <div class="col-sm-6">
                         <div class="radio">
                             <label>
-                                <input type="radio" value="monthly-10" name="plan">&nbsp;&nbsp;Forge ($10 / Month)
+                                <input type="radio" value="startup" name="plan">&nbsp;&nbsp;Startup ($9.99 / Month)
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" value="monthly-20" name="plan">&nbsp;&nbsp;Forge Plus ($20 / Month)
+                                <input type="radio" value="business" name="plan">&nbsp;&nbsp;Business ($29.99 / Month)
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" value="yearly-basic-100" name="plan">&nbsp;&nbsp;Forge (<strong>$100 / Year - Save $20 Per Year!</strong>)
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" value="yearly-140" name="plan">&nbsp;&nbsp;Forge Plus (<strong>$140 / Year - Save $100 Per Year!</strong>)
+                                <input type="radio" value="professional" name="plan">&nbsp;&nbsp;Professional ($79.99 / Month)
                             </label>
                         </div>
                     </div>
                 </div>
-
+                <br />
                 <div style="text-align: center;" class="form-group">
                     <button type="submit" class="btn btn-lg btn-primary">
                         Register

@@ -30,8 +30,39 @@ var app = function() {
         }).parents('li').last().addClass('active');
     };
 
-    //return functions
-    return {
-
-    };
 }();
+
+$( document ).ready(function() {
+    $('#signup-form').submit(function(event) {
+        var $form = $(this);
+
+        // Disable the submit button to prevent repeated clicks
+        $form.find('button').prop('disabled', true);
+
+        Stripe.card.createToken({
+            name: $('#card-name').val(),
+            number: $('#card-number').val(),
+            cvc: $('#card-cvv').val(),
+            exp_month: $('#card-expiry-month').val(),
+            exp_year: $('#card-expiry-year').val()}, stripeResponseHandler);
+
+        // Prevent the form from submitting with the default action
+        return false;
+    });
+
+});
+
+function stripeResponseHandler(status, response) {
+    var $form = $('#signup-form');
+
+    if (response.error) {
+        $('#payment-errors').text(response.error.message).show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $form.find('button').prop('disabled', false);
+
+    } else {
+        var token = response.id;
+        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+        $form.get(0).submit();
+    }
+}

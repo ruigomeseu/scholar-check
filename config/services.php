@@ -20,18 +20,18 @@ return [
 	],
 
 	'mandrill' => [
-		'secret' => '',
+		'secret' => env('MANDRILL_API_KEY'),
 	],
+
+    'stripe' => [
+        'model'  => 'User',
+        'secret' => env('STRIPE_SECRET_KEY'),
+    ],
 
 	'ses' => [
 		'key' => '',
 		'secret' => '',
 		'region' => 'us-east-1',
-	],
-
-	'stripe' => [
-		'model'  => 'User',
-		'secret' => '',
 	],
 
 ];
