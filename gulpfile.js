@@ -38,6 +38,7 @@ elixir(function(mix) {
             paths.bootstrap + "javascripts/bootstrap.js",
             "public/vendor/js/modernizr-2.8.3.min.js",
             "public/vendor/js/jquery.navgoco.min.js",
+            "public/vendor/js/gauge.min.js",
             "resources/assets/js/app.js",
             "resources/assets/js/api-keys.js"
         ], "public/js/all.js", "./")

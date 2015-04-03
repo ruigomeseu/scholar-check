@@ -6,6 +6,7 @@ use ScholarCheck\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use ScholarCheck\Http\Requests\UpdateProfileRequest;
 use ScholarCheck\Http\Requests\UserLoginRequest;
 use ScholarCheck\Http\Requests\UserRegisterRequest;
 use ScholarCheck\User;
@@ -23,7 +24,7 @@ class AuthController extends Controller {
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => 'getLogout']);
+		$this->middleware('guest', ['except' => ['getLogout', 'getProfile', 'postProfile']]);
 	}
 
     public function getRegister()
@@ -112,6 +113,35 @@ class AuthController extends Controller {
                 ->route('login')
                 ->with('status', 'You have successfully activated your account, you can now sign in!');
         }
+    }
+
+    public function getProfile()
+    {
+        $user = Auth::user();
+
+        return view('auth.profile')
+            ->with([
+                'title' => 'Manage your account',
+                'user' => $user
+            ]);
+    }
+
+    public function postProfile(UpdateProfileRequest $request)
+    {
+        $user = Auth::user();
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+
+        if(! is_null($request->input('password')))
+        {
+            $user->password = $request->input('password');
+        }
+
+        $user->save();
+
+        return redirect()->route('users.profile')
+            ->with('status', 'Your account has been updated.');
     }
 
     public function getLogout()

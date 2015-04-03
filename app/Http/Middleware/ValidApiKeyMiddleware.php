@@ -16,8 +16,8 @@ class ValidApiKeyMiddleware {
 	{
         $token = $request->input('token');
 
-        if(!$token){
-            $token = $request->header('Authorization');
+        if(!$token) {
+            $token = $request->header('Token');
         }
 
         $key = ApiKey::where('key', '=', $token)->with('user')->first();

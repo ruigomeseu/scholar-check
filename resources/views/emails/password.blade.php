@@ -14,7 +14,7 @@
                                 <td bgcolor="#ffffff" class="contentblock">
 
                                     <h4 class="secondary"><strong><singleline label="Title">Password Reset</singleline></strong></h4>
-                                    <multiline label="Description"><p>Click here to reset your password: {{ url('password/reset/'.$token) }}</p></multiline>
+                                    <multiline label="Description"><p>Click here to reset your password: <a href="{{ url('password/reset/'.$token) }}">{{ url('password/reset/'.$token) }}</a></p></multiline>
 
                                 </td>
                             </tr>

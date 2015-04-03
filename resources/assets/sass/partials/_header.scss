@@ -14,10 +14,11 @@
     .logo {
         font-size: $size19px;
         text-transform: uppercase;
-        padding: 17px 0 0 10px;
+        padding: 9px 0 0 10px;
         display: inline-block;
     }
     .logo img {
+        height: 50px;
         margin-right: 6px;
         margin-top: -4px;
     }
@@ -227,6 +228,13 @@
 }
 
 @media only screen and (max-width: 660px) {
+    #header {
+      .brand {
+        .logo {
+          padding: 10px 0 0 0;
+        }
+      }
+    }
     #header .user-nav ul {
         padding-left: 0;
     }

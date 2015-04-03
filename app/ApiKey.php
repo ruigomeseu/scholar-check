@@ -39,4 +39,9 @@ class ApiKey extends Model {
         $this->save();
     }
 
+    public function apiCalls()
+    {
+        return $this->hasMany('ScholarCheck\ApiCall');
+    }
+
 }

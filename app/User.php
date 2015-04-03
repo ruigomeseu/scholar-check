@@ -55,4 +55,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('\ScholarCheck\ApiKey');
     }
 
+    public function apiCalls()
+    {
+        return $this->hasManyThrough('\ScholarCheck\ApiCall', '\ScholarCheck\ApiKey');
+    }
+
+    public function plan()
+    {
+        return $this->hasOne('\ScholarCheck\Plan', 'name', 'stripe_plan');
+    }
+
 }

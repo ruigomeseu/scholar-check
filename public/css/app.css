@@ -6671,9 +6671,10 @@ canvas {
   #header .logo {
     font-size: 1.188em;
     text-transform: uppercase;
-    padding: 17px 0 0 10px;
+    padding: 9px 0 0 10px;
     display: inline-block; }
   #header .logo img {
+    height: 50px;
     margin-right: 6px;
     margin-top: -4px; }
   #header .logo span {
@@ -6835,6 +6836,8 @@ canvas {
     right: 0; } }
 
 @media only screen and (max-width: 660px) {
+  #header .brand .logo {
+    padding: 10px 0 0 0; }
   #header .user-nav ul {
     padding-left: 0; }
   #header .toggle-navigation.toggle-left {
@@ -8827,6 +8830,8 @@ label.valid {
 #login-wrapper .logo span {
   font-weight: 700; }
 #login-wrapper .logo img {
+  height: 100px;
+  margin-right: 6px;
   margin-top: -5px; }
 #login-wrapper .brand {
   text-align: center;
