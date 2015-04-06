@@ -150,7 +150,8 @@ return [
          */
         'Laravel\Cashier\CashierServiceProvider',
         'Illuminate\View\ViewServiceProvider',
-        'Illuminate\Html\HtmlServiceProvider'
+        'Illuminate\Html\HtmlServiceProvider',
+        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
 
 	],
 
@@ -200,7 +201,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form'  => 'Illuminate\Html\FormFacade',
-        'HTML'  => 'Illuminate\Html\HtmlFacade'
+        'HTML'  => 'Illuminate\Html\HtmlFacade',
+        'Bugsnag' => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
 
 	],
 

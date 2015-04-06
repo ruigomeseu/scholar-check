@@ -18,6 +18,8 @@ class CreateApiCallsTable extends Migration {
             $table->integer('api_key_id')->unsigned();
             $table->foreign('api_key_id')->references('id')->on('api_keys');
             $table->string('ip');
+            $table->string('email')->nullable();
+            $table->boolean('valid_email')->nullable();
             $table->timestamps();
         });
 	}

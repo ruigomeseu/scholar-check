@@ -111,17 +111,17 @@
                     <div class="col-sm-6">
                         <div class="radio">
                             <label>
-                                <input type="radio" value="startup" name="plan">&nbsp;&nbsp;Startup ($9.99 / Month)
+                                <input type="radio" value="startup" name="plan" @if(isset($_GET['startup'])) checked @endif>&nbsp;&nbsp;Startup ($9.99 / Month)
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" value="business" name="plan">&nbsp;&nbsp;Business ($29.99 / Month)
+                                <input type="radio" value="business" name="plan" @if(isset($_GET['business'])) checked @endif>&nbsp;&nbsp;Business ($29.99 / Month)
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" value="professional" name="plan">&nbsp;&nbsp;Professional ($79.99 / Month)
+                                <input type="radio" value="professional" name="plan" @if(isset($_GET['professional'])) checked @endif>&nbsp;&nbsp;Professional ($79.99 / Month)
                             </label>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
     <!--logo start-->
     <div class="brand">
         <a href="{{ url('/') }}" class="logo">
-            <img src="http://scholarcheck.dev:8000/images/student.png">
+            <img src="/images/student.png">
             <span>SCHOLAR</span>CHECK</a>
     </div>
     <!--logo end-->

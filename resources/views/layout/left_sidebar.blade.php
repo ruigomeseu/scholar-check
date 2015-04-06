@@ -12,22 +12,10 @@
                     <i class="fa fa-fw fa-key"></i> API Keys
                 </a>
             </li>
-            <li class="nav-dropdown">
-                <a href="#" title="Documentation">
+            <li>
+                <a href="https://github.com/scholarcheck/documentation" target="_blank" title="Documentation">
                     <i class="fa fa-fw fa-book"></i> Documentation
                 </a>
-                <ul class="nav-sub">
-                    <li>
-                        <a href="#" title="Buttons">
-                            Blank Page
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Sliders &amp; Progress">
-                            Another Blank Page
-                        </a>
-                    </li>
-                </ul>
             </li>
         </ul>
     </nav>

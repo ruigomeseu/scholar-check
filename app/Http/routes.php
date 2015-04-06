@@ -24,11 +24,7 @@ Route::group(['middleware' => 'auth'], function()
 
     Route::get('/users/profile', ['as' => 'users.profile', 'uses' => 'Auth\AuthController@getProfile']);
     Route::post('/users/profile', ['as' => 'users.profile', 'uses' => 'Auth\AuthController@postProfile']);
-
-
 });
-
-
 
 Route::group(['namespace' => 'Api\v1', 'prefix' => 'api/v1', 'middleware' => 'api.key'], function()
 {
