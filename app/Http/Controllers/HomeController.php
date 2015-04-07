@@ -38,7 +38,7 @@ class HomeController extends Controller {
 
         return view('home')->with([
             'title' => 'Dashboard',
-            'callsUsed' => ($callsUsed==0) ? 1 : $callsUsed, //Gauge is bugged when the value is 0
+            'callsUsed' => $callsUsed,
             'maxApiCalls' => $maxApiCalls,
             'calls' => $calls,
             'allTimeCalls' => $allTimeCalls,

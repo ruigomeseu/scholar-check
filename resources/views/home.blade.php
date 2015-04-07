@@ -2,6 +2,7 @@
 
 @section('additional_scripts')
     <script type="text/javascript">
+        var callsUsed = {{ ($callsUsed==0) ? 1 : $callsUsed }};
         var opts = {
             lines: 12, // The number of lines to draw
             angle: 0, // The length of each line
@@ -21,7 +22,7 @@
         var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
         gauge.maxValue = {{ $maxApiCalls }}; // set max gauge value
         gauge.animationSpeed = 32; // set animation speed (32 is default value)
-        gauge.set({{ $callsUsed }}); // set actual value
+        gauge.set(callsUsed); // set actual value
         gauge.setTextField(document.getElementById("gauge-text"));
 
         var chartJs = function () {
