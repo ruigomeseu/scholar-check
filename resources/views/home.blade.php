@@ -23,7 +23,6 @@
         gauge.maxValue = {{ $maxApiCalls }}; // set max gauge value
         gauge.animationSpeed = 32; // set animation speed (32 is default value)
         gauge.set(callsUsed); // set actual value
-        gauge.setTextField(document.getElementById("gauge-text"));
 
         var chartJs = function () {
             var lineChartData = {
@@ -74,8 +73,8 @@
                             <canvas width="160" height="100" id="gauge" class=""></canvas>
                             <div class="goal-wrapper">
                                 <span class="gauge-value pull-left"></span>
-                                <span id="gauge-text" class="gauge-value pull-left">{{ $callsUsed }}</span>
-                                <span id="goal-text" class="goal-value pull-right">{{ $maxApiCalls }}</span>
+                                <span class="gauge-value pull-left">{{ $callsUsed }}</span>
+                                <span class="goal-value pull-right">{{ $maxApiCalls }}</span>
                             </div>
                         </div>
                     </div>
