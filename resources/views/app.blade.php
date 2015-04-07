@@ -32,5 +32,6 @@
 <script src="{{ elixir("js/all.js") }}"></script>
 @include('partials/_stripe-js')
 @yield('additional_scripts')
+@include('partials/_analytics')
 </body>
 </html>

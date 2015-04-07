@@ -41,13 +41,25 @@ class AuthController extends Controller {
         $user->confirmed = 0;
         $user->confirmation_token = str_random(12);
 
-        $user->subscription($request->input('plan'))
-            ->create(
-                $request->input('stripeToken'),
-                [
-                    'email' => $user->email
-                ]
-            );
+        if($request->input('coupon'))
+        {
+            $user->subscription($request->input('plan'))
+                ->withCoupon($request->input('coupon'))
+                ->create(
+                    $request->input('stripeToken'),
+                    [
+                        'email' => $user->email
+                    ]
+                );
+        } else {
+            $user->subscription($request->input('plan'))
+                ->create(
+                    $request->input('stripeToken'),
+                    [
+                        'email' => $user->email
+                    ]
+                );
+        }
 
         $user->save();
 

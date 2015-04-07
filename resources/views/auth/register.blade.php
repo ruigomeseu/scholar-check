@@ -103,7 +103,7 @@
                         <input type="text" class="form-control" name="card-cvv" id="card-cvv" placeholder="Security Code">
                     </div>
                 </div>
-
+                <p class="text-muted text-center">Your credit card won't be billed until the 7-day trial ends. Your subscription can be canceled at any time.</p>
                 <hr />
 
                 <div class="form-group">

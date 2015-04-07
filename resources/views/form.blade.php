@@ -36,6 +36,6 @@
     </div>
 
 </section>
-
+@include('partials/_analytics')
 </body>
 </html>
