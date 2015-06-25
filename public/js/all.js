@@ -11640,7 +11640,7 @@ var app = function() {
 
 }();
 
-var QueryString = function () {
+ function getQueryString () {
     // This function is anonymous, is executed immediately and
     // the return value is assigned to QueryString!
     var query_string = {};
@@ -11661,9 +11661,19 @@ var QueryString = function () {
         }
     }
     return query_string;
-} ();
+};
 
 $( document ).ready(function() {
+    $('#coupon').on('blur', function(event) {
+       if($(this).val() == "PRODUCTHUNT3") {
+           $('#trial-info').text("Your credit card won't be billed for 3 months. Your subscription can be canceled at any time.");
+           $('#valid-coupon').show().fade(500);
+       } else {
+           $('#trial-info').text("Your credit card won't be billed until the 7-day trial ends. Your subscription can be canceled at any time.");
+           $('#valid-coupon').hide().fade(500);
+       }
+    });
+
     $('#signup-form').submit(function(event) {
         var $form = $(this);
 
@@ -11692,6 +11702,7 @@ function stripeResponseHandler(status, response) {
 
     } else {
         var token = response.id;
+        var QueryString = getQueryString();
         $form.append($('<input type="hidden" name="stripeToken" />').val(token));
         if(QueryString.coupon)
         {

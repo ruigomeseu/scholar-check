@@ -103,7 +103,7 @@
                         <input type="text" class="form-control" name="card-cvv" id="card-cvv" placeholder="Security Code">
                     </div>
                 </div>
-                <p class="text-muted text-center">Your credit card won't be billed until the 7-day trial ends. Your subscription can be canceled at any time.</p>
+                <p id="trial-info" class="text-muted text-center">Your credit card won't be billed until the 7-day trial ends. Your subscription can be canceled at any time.</p>
                 <hr />
 
                 <div class="form-group">
@@ -126,7 +126,17 @@
                         </div>
                     </div>
                 </div>
-                <br />
+                <hr />
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="coupon">Coupon Code (if applicable)</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="coupon" id="coupon" placeholder="Coupon">
+                    </div>
+                    <div id="valid-coupon" style="margin-top: 6px; display:none;">
+                        <span style="color: green;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <hr />
                 <div style="text-align: center;" class="form-group">
                     <button type="submit" class="btn btn-lg btn-primary">
                         Register
@@ -135,5 +145,9 @@
             </form>
         </div>
     </div>
+
+    <script>
+
+    </script>
 
 @endsection

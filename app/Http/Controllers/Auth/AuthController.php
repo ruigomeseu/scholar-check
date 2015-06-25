@@ -73,7 +73,7 @@ class AuthController extends Controller {
             $message->to($userInfo['email'])->subject('Your new ScholarCheck account');
         });
 
-        return redirect()->route('login')->with([
+        return redirect()->route('login', ['account' => '1'])->with([
             'status' => 'Your account was created. Confirm your email to login.'
         ]);
     }
